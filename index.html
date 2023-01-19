@@ -1,0 +1,114 @@
+<style>
+  #divoforangebtn{
+    
+    
+   text-align:center; 
+    
+  }
+</style>
+
+<script>
+       document.getElementById('main-wrapper').style.display='';
+ 
+     
+
+         let postHeaderClass = document.getElementsByClassName('post-header');
+       let ourpostHeaderElement = postHeaderClass[0];
+  
+  
+  
+
+  
+  
+ourpostHeaderElement.innerHTML='<div style="padding-top:1vw;color: white; text-align: center;  text-shadow: orange 1px 1px 1px, blue 0px 1px 1px, rgb(0, 0, 0) 2px 1px 1px;"> <h1 style="color:white; " class="post-title"> &nbsp; CSS Title Generator</h1>'+
+  
+  
+  
+  
+  
+ ' <br> <p>Enter your title: </p><br><textarea id="input" style="resize:none;width:200;height:50;"> </textarea><br><br>'+
+  
+  '<button id="btn" onclick="x()" style="font-size:20px; font-family:arial; background-color:#2560e4; color:white; border:0px solid white; border-radius:10px;">Generate</button><br><h1 id="result"></h1>'+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  '</div>';
+  
+  
+  function x(){
+    
+   let input = document.getElementById('input').value;
+    
+   let resultBox = document.getElementById('result');
+    
+    if(input.length<1 || input.search(/[A-Za-z]/)<1 ){
+         alert('input text can not be empty and needs to have at least one letter');
+         resultBox.innerText="";
+    }else{   
+      
+          if(input.length>35){
+        
+         alert('input text can not be larger than 35 characters');
+         resultBox.innerText="";
+      
+          }else{
+      
+      
+          resultBox.innerText=input;
+            
+       let postHeaderClass = document.getElementsByClassName('post-header');
+       let ourpostHeaderElement = postHeaderClass[0];
+       let the_html = ourpostHeaderElement.innerHTML;
+             
+            
+       if( the_html.includes("divoforangebtn")==false){
+         ourpostHeaderElement.innerHTML += "<br> <div id='divoforangebtn'><button style='font-size:20px; font-family:arial; background-color:orange; color:white; border:0px solid black; border-radius:10px;' onclick='y()'>Different Style</button></div>"; 
+ }  
+         
+      
+    }
+    
+    }
+    
+  }
+  
+    
+  function y(){
+    
+  textColors = ["black","white","red","orange","blue","purple","green","lightblue","#800000", "#FFFF00"];
+   fonts = ["Lucida Console","Courier New","Arial","Helvetica","Times New Roman","Lucida Handwriting"];
+    
+    let randomNumberColor = Math.floor(Math.random()*10);
+    let randomNumberFont = Math.floor(Math.random()*6);
+    
+    let thisColor = textColors[randomNumberColor];
+    let thisFont = fonts[randomNumberFont];
+
+    let itsStyle = document.getElementById('result').style;
+    
+    
+    itsStyle.color = thisColor;
+    
+    itsStyle.fontFamily = thisFont;
+     
+    
+    
+  }
+
+
+</script>
+
+<br/><br/>
+<br/>
+
+<noscript>Your browser does not support JavaScript!</noscript>
