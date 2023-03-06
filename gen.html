@@ -1,0 +1,81 @@
+<h1> CSS Title Generator</h1><br> 
+ 
+  <p>Enter your title: </p><br><textarea id="input" style="resize:none;width:200;height:50;"> </textarea><br><br>
+  
+   <button id="btn" onclick="x()" style="font-size:20px; font-family:arial; background-color:#2560e4; color:white; border:0px solid white; border-radius:10px;">Generate</button><br><h1 id="result"></h1>
+  
+  <br>
+  <textarea id="outputcode" style="resize:none;width:200;height:50;"> </textarea><br>
+  <style>
+      #outputcode{
+          display:none;
+      }
+  </style>
+       
+<script>
+ 
+ 
+
+  function x(){
+    
+   let input = document.getElementById('input').value;
+    
+   let resultBox = document.getElementById('result');
+    
+    if(input.length<1 || input.search(/[A-Za-z]/)<1 ){
+         alert('input text can not be empty and needs to have at least one letter');
+         resultBox.innerText="";
+    }else{   
+      
+          if(input.length>35){
+        
+         alert('input text can not be larger than 35 characters');
+         resultBox.innerText="";
+      
+          }else{
+      
+      
+          resultBox.innerText=input;
+            
+          y();
+    
+         
+      
+    }
+    
+    }
+    
+  }
+  
+    
+  function y(){
+    
+  textColors = ["#000000", "#000033", "#000066", "#000099", "#0000cc", "#0000ff", "#003300", "#003333", "#003366", "#003399", "#0033cc", "#0033ff", "#006600", "#006633", "#006666", "#006699", "#0066cc", "#0066ff", "#009900", "#009933", "#009966", "#009999", "#0099cc", "#0099ff", "#00cc00", "#00cc33", "#00cc66", "#00cc99", "#00cccc", "#00ccff", "#00ff00", "#00ff33", "#00ff66", "#00ff99", "#00ffcc", "#00ffff", "#330000", "#330033", "#330066", "#330099", "#3300cc", "#3300ff", "#333300", "#333333", "#333366", "#333399", "#3333cc", "#3333ff", "#336600", "#336633", "#336666", "#336699", "#3366cc", "#3366ff", "#339900", "#339933", "#339966", "#339999", "#3399cc", "#3399ff", "#33cc00", "#33cc33", "#33cc66", "#33cc99", "#33cccc", "#33ccff", "#33ff00", "#33ff33", "#33ff66", "#33ff99", "#33ffcc", "#33ffff", "#660000", "#660033", "#660066", "#660099", "#6600cc", "#6600ff", "#663300", "#663333", "#663366", "#663399", "#6633cc", "#6633ff", "#666600", "#666633", "#666666", "#666699", "#6666cc", "#6666ff", "#669900", "#669933", "#669966", "#669999", "#6699cc", "#6699ff", "#66cc00", "#66cc33", "#66cc66", "#66cc99", "#66cccc", "#66ccff", "#66ff00", "#66ff33", "#66ff66", "#66ff99", "#66ffcc", "#66ffff", "#990000", "#990033", "#990066", "#990099", "#9900cc", "#9900ff", "#993300", "#993333", "#993366", "#993399", "#9933cc", "#9933ff", "#996600", "#996633", "#996666", "#996699", "#9966cc", "#9966ff", "#999900", "#999933", "#999966", "#999999", "#9999cc", "#9999ff", "#99cc00", "#99cc33", "#99cc66", "#99cc99", "#99cccc", "#99ccff", "#99ff00", "#99ff33", "#99ff66", "#99ff99", "#99ffcc", "#99ffff", "#cc0000", "#cc0033", "#cc0066", "#cc0099", "#cc00cc", "#cc00ff", "#cc3300", "#cc3333", "#cc3366", "#cc3399", "#cc33cc", "#cc33ff", "#cc6600", "#cc6633", "#cc6666", "#cc6699", "#cc66cc", "#cc66ff", "#cc9900", "#cc9933", "#cc9966", "#cc9999", "#cc99cc", "#cc99ff", "#cccc00", "#cccc33", "#cccc66", "#cccc99", "#cccccc", "#ccccff", "#ccff00", "#ccff33", "#ccff66", "#ccff99", "#ccffcc", "#ccffff", "#ff0000", "#ff0033", "#ff0066", "#ff0099", "#ff00cc", "#ff00ff", "#ff3300", "#ff3333", "#ff3366", "#ff3399", "#ff33cc", "#ff33ff", "#ff6600", "#ff6633", "#ff6666", "#ff6699", "#ff66cc", "#ff66ff", "#ff9900", "#ff9933", "#ff9966", "#ff9999", "#ff99cc", "#ff99ff", "#ffcc00", "#ffcc33", "#ffcc66", "#ffcc99", "#ffcccc", "#ffccff", "#ffff00", "#ffff33", "#ffff66", "#ffff99", "#ffffcc","AliceBlue", "#F0F8FF", "AntiqueWhite", "#FAEBD7", "Aqua", "#00FFFF", "Aquamarine", "#7FFFD4", "Azure", "#F0FFFF", "Beige", "#F5F5DC", "Bisque", "#FFE4C4", "Black", "#000000", "BlanchedAlmond", "#FFEBCD", "Blue", "#0000FF", "BlueViolet", "#8A2BE2", "Brown", "#A52A2A", "BurlyWood", "#DEB887", "CadetBlue", "#5F9EA0", "Chartreuse", "#7FFF00", "Chocolate", "#D2691E", "Coral", "#FF7F50", "CornflowerBlue", "#6495ED", "Cornsilk", "#FFF8DC", "Crimson", "#DC143C", "Cyan", "#00FFFF", "DarkBlue", "#00008B", "DarkCyan", "#008B8B", "DarkGoldenRod", "#B8860B", "DarkGray", "#A9A9A9", "DarkGrey", "#A9A9A9", "DarkGreen", "#006400", "DarkKhaki", "#BDB76B", "DarkMagenta", "#8B008B", "DarkOliveGreen", "#556B2F", "DarkOrange", "#FF8C00", "DarkOrchid", "#9932CC", "DarkRed", "#8B0000", "DarkSalmon", "#E9967A", "DarkSeaGreen", "#8FBC8F", "DarkSlateBlue", "#483D8B", "DarkSlateGray", "#2F4F4F", "DarkSlateGrey", "#2F4F4F", "DarkTurquoise", "#00CED1", "DarkViolet", "#9400D3", "DeepPink", "#FF1493", "DeepSkyBlue", "#00BFFF", "DimGray", "#696969", "DimGrey", "#696969", "DodgerBlue", "#1E90FF", "FireBrick", "#B22222", "FloralWhite", "#FFFAF0", "ForestGreen", "#228B22", "Fuchsia", "#FF00FF", "Gainsboro", "#DCDCDC", "GhostWhite", "#F8F8FF", "Gold", "#FFD700", "GoldenRod", "#DAA520", "Gray", "#808080", "Grey", "#808080", "Green", "#008000", "GreenYellow", "#ADFF2F", "HoneyDew", "#F0FFF0", "HotPink", "#FF69B4", "IndianRed", "#CD5C5C", "Indigo", "#4B0082", "Ivory", "#FFFFF0", "Khaki", "#F0E68C", "Lavender", "#E6E6FA", "LavenderBlush", "#FFF0F5", "LawnGreen", "#7CFC00", "LemonChiffon", "#FFFACD", "LightBlue", "#ADD8E6", "LightCoral", "#F08080", "LightCyan", "#E0FFFF", "LightGoldenRodYellow", "#FAFAD2", "LightGray", "#D3D3D3", "LightGrey", "#D3D3D3", "LightGreen", "#90EE90", "LightPink", "#FFB6C1", "LightSalmon", "#FFA07A", "LightSeaGreen", "#20B2AA", "LightSkyBlue", "#87CEFA", "LightSlateGray", "#778899", "LightSlateGrey", "#778899", "LightSteelBlue", "#B0C4DE", "LightYellow", "#FFFFE0", "Lime", "#00FF00", "LimeGreen", "#32CD32", "Linen", "#FAF0E6", "Magenta", "#FF00FF", "Maroon", "#800000", "MediumAquaMarine", "#66CDAA", "MediumBlue", "#0000CD", "MediumOrchid", "#BA55D3", "MediumPurple", "#9370DB", "MediumSeaGreen", "#3CB371", "MediumSlateBlue", "#7B68EE", "MediumSpringGreen", "#00FA9A", "MediumTurquoise", "#48D1CC", "MediumVioletRed", "#C71585", "MidnightBlue", "#191970", "MintCream", "#F5FFFA", "MistyRose", "#FFE4E1", "Moccasin", "#FFE4B5", "NavajoWhite", "#FFDEAD", "Navy", "#000080", "OldLace", "#FDF5E6", "Olive", "#808000", "OliveDrab", "#6B8E23", "Orange", "#FFA500", "OrangeRed", "#FF4500", "Orchid", "#DA70D6", "PaleGoldenRod", "#EEE8AA", "PaleGreen", "#98FB98", "PaleTurquoise", "#AFEEEE", "PaleVioletRed", "#DB7093", "PapayaWhip", "#FFEFD5", "PeachPuff", "#FFDAB9", "Peru", "#CD853F", "Pink", "#FFC0CB", "Plum", "#DDA0DD", "PowderBlue", "#B0E0E6", "Purple", "#800080", "RebeccaPurple", "#663399", "Red", "#FF0000", "RosyBrown", "#BC8F8F", "RoyalBlue", "#4169E1", "SaddleBrown", "#8B4513", "Salmon", "#FA8072", "SandyBrown", "#F4A460", "SeaGreen", "#2E8B57", "SeaShell", "#FFF5EE", "Sienna", "#A0522D", "Silver", "#C0C0C0", "SkyBlue", "#87CEEB", "SlateBlue", "#6A5ACD", "SlateGray", "#708090", "SlateGrey", "#708090", "Snow", "#FFFAFA", "SpringGreen", "#00FF7F", "SteelBlue", "#4682B4", "Tan", "#D2B48C", "Teal", "#008080", "Thistle", "#D8BFD8", "Tomato", "#FF6347", "Turquoise", "#40E0D0", "Violet", "#EE82EE", "Wheat", "#F5DEB3", "White", "#FFFFFF", "WhiteSmoke", "#F5F5F5", "Yellow", "#FFFF00", "YellowGreen"];
+  
+   fonts = ["cursive", "monospace", "serif", "sans-serif", "fantasy", "default", "Arial", "Arial Black", "Arial Narrow", "Arial Rounded MT Bold", "Bookman Old Style", "Bradley Hand ITC", "Century", "Century Gothic", "Comic Sans MS", "Courier", "Courier New", "Georgia", "Gentium", "Impact", "King", "Lucida Console", "Lalit", "Modena", "Monotype Corsiva", "Papyrus", "Tahoma", "TeX", "Times", "Times New Roman", "Trebuchet MS", "Verdana", "Verona"];
+    
+    let randomNumberColor = Math.floor(Math.random()*textColors.length);
+    let randomNumberFont = Math.floor(Math.random()*fonts.length);
+    
+    let thisColor = textColors[randomNumberColor];
+    let thisFont = fonts[randomNumberFont];
+
+    let itsStyle = document.getElementById('result').style;
+    
+    
+    itsStyle.color = thisColor;
+    
+    itsStyle.fontFamily = thisFont;
+     
+    document.getElementById('outputcode').style.display='inline';
+        document.getElementById('outputcode').value=
+        
+        "color: "+document.getElementById('result').style.color+";\n"
+        +
+         "font-family: "+document.getElementById('result').style.fontFamily +";\n";
+  }
+
+
+</script>
+
+<br/><br/>
